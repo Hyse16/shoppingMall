@@ -1,0 +1,5 @@
+package com.project.shoppingMall.domain;
+
+public enum ItemSellStatus {
+    SELL,SOLD_OUT
+}
