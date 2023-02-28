@@ -1,5 +1,6 @@
 package com.project.shoppingMall.domain;
 
+import com.project.shoppingMall.constant.ItemSellStatus;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
