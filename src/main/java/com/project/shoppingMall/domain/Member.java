@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "member")
 @ToString
 @RequiredArgsConstructor
-public class Member {
+public class Member extends BaseEntity{
     @Id
     @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,7 +49,7 @@ public class Member {
                 .email(memberFormDto.getEmail())
                 .address(memberFormDto.getAddress())
                 .password(passwordEncoder.encode(memberFormDto.getPassword()))
-                .role(Role.USER)
+                .role(Role.ADMIN)
                 .build();
     }
 }

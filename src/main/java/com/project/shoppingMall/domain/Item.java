@@ -3,6 +3,7 @@ package com.project.shoppingMall.domain;
 import com.project.shoppingMall.constant.ItemSellStatus;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @ToString
 @Getter
+@NoArgsConstructor
 @Table(name = "item")
 public class Item {
 
