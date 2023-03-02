@@ -1,10 +1,12 @@
 package com.project.shoppingMall.domain;
 
 import com.project.shoppingMall.constant.ItemSellStatus;
+import com.project.shoppingMall.dto.ItemFormDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.extern.java.Log;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,7 +16,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @Table(name = "item")
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +26,7 @@ public class Item {
     @Column(nullable = false, length = 50)
     private String itemNm;
 
-    @Column(name = "price",nullable = false)
+    @Column(name = "price", nullable = false)
     private int price;
 
     @Column(nullable = false)
@@ -37,19 +39,14 @@ public class Item {
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;
 
-    private LocalDateTime regTime;
-
-    private LocalDateTime updateTime;
-
     @Builder
-    public Item(Long itemId, String itemNm, int price, int stockNumber, String itemDetail, ItemSellStatus itemSellStatus, LocalDateTime retTime, LocalDateTime updateTime) {
-        this.id = itemId;
+    public Item(Long id, String itemNm, int price, int stockNumber, String itemDetail, ItemSellStatus itemSellStatus) {
+        this.id = id;
         this.itemNm = itemNm;
         this.price = price;
         this.stockNumber = stockNumber;
         this.itemDetail = itemDetail;
         this.itemSellStatus = itemSellStatus;
-        this.regTime = retTime;
-        this.updateTime = updateTime;
     }
+
 }

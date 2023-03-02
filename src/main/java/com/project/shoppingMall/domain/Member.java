@@ -2,10 +2,7 @@ package com.project.shoppingMall.domain;
 
 import com.project.shoppingMall.constant.Role;
 import com.project.shoppingMall.dto.MemberFormDto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
@@ -14,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Table(name = "member")
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Member extends BaseEntity{
     @Id
     @Column(name = "member_id")

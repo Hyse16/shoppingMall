@@ -16,7 +16,7 @@ public class OrderItem extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "order_item")
+    @Column(name = "order_item_Id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -30,8 +30,6 @@ public class OrderItem extends BaseEntity{
     private int orderPrice;
 
     private int count;
-
-
 
     @Builder
     public OrderItem(Item item, Order order, int orderPrice, int count) {

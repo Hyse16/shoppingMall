@@ -13,12 +13,12 @@ import javax.persistence.*;
 @Getter
 @ToString
 @NoArgsConstructor
-public class Cart {
+public class Cart extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cart_id")
-    private Long Id;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

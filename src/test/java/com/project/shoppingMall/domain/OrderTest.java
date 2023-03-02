@@ -42,8 +42,6 @@ class OrderTest {
                 .itemDetail("상세 설명")
                 .stockNumber(100)
                 .itemSellStatus(ItemSellStatus.SELL)
-                .retTime(LocalDateTime.now())
-                .updateTime(LocalDateTime.now())
                 .build();
     }
 
