@@ -11,11 +11,10 @@ import lombok.extern.java.Log;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@ToString
-@Getter
+@Getter @ToString
 @NoArgsConstructor
 @Table(name = "item")
+@Entity
 public class Item extends BaseEntity {
 
     @Id
@@ -48,5 +47,14 @@ public class Item extends BaseEntity {
         this.itemDetail = itemDetail;
         this.itemSellStatus = itemSellStatus;
     }
+
+    public void updateItem(ItemFormDto itemFormDto){
+        this.itemNm = itemFormDto.getItemNm();
+        this.price = itemFormDto.getPrice();
+        this.stockNumber = itemFormDto.getStockNumber();
+        this.itemDetail = itemFormDto.getItemDetail();
+        this.itemSellStatus = itemFormDto.getItemSellStatus();
+    }
+
 
 }

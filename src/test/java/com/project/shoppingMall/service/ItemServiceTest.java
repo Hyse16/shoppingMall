@@ -25,42 +25,51 @@ import static org.junit.jupiter.api.Assertions.*;
 class ItemServiceTest {
 
     @Autowired
+    ItemService itemService;
+
+    @Autowired
     ItemRepository itemRepository;
 
     @Autowired
     ItemImgRepository itemImgRepository;
 
-    @Autowired
-    ItemService itemService;
-    List<MultipartFile> createMultipartFiles() throws Exception {
+    List<MultipartFile> createMultipartFiles() throws Exception{
+
         List<MultipartFile> multipartFileList = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) {
+        for(int i=0;i<5;i++){
             String path = "/Users/hyeonseung/Desktop/item/shop";
             String imageName = "image" + i + ".jpg";
-            MockMultipartFile multipartFile = new MockMultipartFile(path, imageName, "image/jpg", new byte[]{1,2,3,4});
+            MockMultipartFile multipartFile =
+                    new MockMultipartFile(path, imageName, "image/jpg", new byte[]{1,2,3,4});
             multipartFileList.add(multipartFile);
         }
+
         return multipartFileList;
     }
 
     @Test
     @WithMockUser(username = "admin", roles = "ADMIN")
-    public void saveItem() throws Exception {
+    void saveItem() throws Exception {
         ItemFormDto itemFormDto = new ItemFormDto();
-        itemFormDto.setItemNm("test");
-        itemFormDto.setItemDetail("테스트 상품");
+        itemFormDto.setItemNm("테스트상품");
         itemFormDto.setItemSellStatus(ItemSellStatus.SELL);
+        itemFormDto.setItemDetail("테스트 상품 입니다.");
         itemFormDto.setPrice(1000);
         itemFormDto.setStockNumber(100);
 
         List<MultipartFile> multipartFileList = createMultipartFiles();
         Long itemId = itemService.saveItem(itemFormDto, multipartFileList);
-
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
-        Item item = itemRepository.findById(itemId).orElseThrow(EntityNotFoundException::new);
+
+        Item item = itemRepository.findById(itemId)
+                .orElseThrow(EntityNotFoundException::new);
 
         assertEquals(itemFormDto.getItemNm(), item.getItemNm());
+        assertEquals(itemFormDto.getItemSellStatus(), item.getItemSellStatus());
+        assertEquals(itemFormDto.getItemDetail(), item.getItemDetail());
+        assertEquals(itemFormDto.getPrice(), item.getPrice());
+        assertEquals(itemFormDto.getStockNumber(), item.getStockNumber());
         assertEquals(multipartFileList.get(0).getOriginalFilename(), itemImgList.get(0).getOriImgName());
     }
 

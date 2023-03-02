@@ -2,16 +2,17 @@ package com.project.shoppingMall.dto;
 
 import com.project.shoppingMall.constant.ItemSellStatus;
 import com.project.shoppingMall.domain.Item;
-import lombok.Data;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 @Getter @Setter
+@NoArgsConstructor
 public class ItemFormDto {
 
     private Long id;
@@ -34,14 +35,37 @@ public class ItemFormDto {
 
     private List<Long> itemImgIds = new ArrayList<>();
 
-    private static ModelMapper modelMapper = new ModelMapper();
-
-    public Item createItem(){
-        return modelMapper.map(this, Item.class);
+    @Builder
+    public ItemFormDto(String itemNm, Integer price, String itemDetail, Integer stockNumber, ItemSellStatus itemSellStatus) {
+        this.itemNm = itemNm;
+        this.price = price;
+        this.itemDetail = itemDetail;
+        this.stockNumber = stockNumber;
+        this.itemSellStatus = itemSellStatus;
     }
 
-    public static ItemFormDto of(Item item){
-        return modelMapper.map(item,ItemFormDto.class);
+    public Item toEntity(ItemFormDto dto) {
+        Item entity = Item.builder()
+                .itemNm(dto.itemNm)
+                .itemDetail(dto.itemDetail)
+                .itemSellStatus(dto.itemSellStatus)
+                .price(dto.price)
+                .stockNumber(dto.stockNumber)
+                .build();
+
+        return entity;
+    }
+
+    public static ItemFormDto of(Item entity) {
+        ItemFormDto dto = ItemFormDto.builder()
+                .itemNm(entity.getItemNm())
+                .itemDetail(entity.getItemDetail())
+                .itemSellStatus(entity.getItemSellStatus())
+                .price(entity.getPrice())
+                .stockNumber(entity.getStockNumber())
+                .build();
+
+        return dto;
     }
 
 }

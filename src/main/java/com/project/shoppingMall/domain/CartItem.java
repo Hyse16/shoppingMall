@@ -14,7 +14,7 @@ public class CartItem extends BaseEntity{
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cart_item_id")
     private Long id;
 

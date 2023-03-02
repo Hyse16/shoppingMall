@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.util.StringUtils;
 
+import javax.persistence.EntityNotFoundException;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -21,18 +23,34 @@ public class ItemImgService {
 
     private final FileService fileService;
 
-    public void saveItemImg(ItemImg itemImg, MultipartFile itemImgFile) throws Exception {
+    public void saveItemImg(ItemImg itemImg, MultipartFile itemImgFile) throws Exception{
         String oriImgName = itemImgFile.getOriginalFilename();
         String imgName = "";
         String imgUrl = "";
 
-        if (!StringUtils.isEmpty(oriImgName)) {
-            imgName = fileService.uploadFile(itemImgLocation, oriImgName, itemImgFile.getBytes());
+        if(!StringUtils.isEmpty(oriImgName)){
+            imgName = fileService.uploadFile(itemImgLocation, oriImgName,
+                    itemImgFile.getBytes());
             imgUrl = "/images/item/" + imgName;
         }
+
         itemImg.updateImg(oriImgName, imgName, imgUrl);
         itemImgRepository.save(itemImg);
     }
+    public void updateItemImg(Long itemImgId, MultipartFile itemImgFile) throws Exception{
+        if(!itemImgFile.isEmpty()){
+            ItemImg savedItemImg = itemImgRepository.findById(itemImgId)
+                    .orElseThrow(EntityNotFoundException::new);
 
+            if(!StringUtils.isEmpty(savedItemImg.getImgName())) {
+                fileService.deleteFile(itemImgLocation+ "/"+ savedItemImg.getImgName());
+            }
+
+            String oriImgName = itemImgFile.getOriginalFilename();
+            String imgName = fileService.uploadFile(itemImgLocation, oriImgName, itemImgFile.getBytes());
+            String imgUrl = "/images/item/" + imgName;
+            savedItemImg.updateImg(oriImgName, imgName, imgUrl);
+        }
+    }
 
 }

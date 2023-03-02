@@ -4,7 +4,6 @@ import com.project.shoppingMall.constant.OrderStatus;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,7 +17,7 @@ import java.util.List;
 public class Order extends BaseEntity{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy =GenerationType.AUTO)
     @Column(name = "order_id")
     private Long id;
 
