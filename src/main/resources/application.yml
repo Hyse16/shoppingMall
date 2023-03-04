@@ -22,5 +22,5 @@ spring:
     show-sql: true
 
 itemImgLocation: /Users/hyeonseung/Desktop/item/shop
-uploadPath : file:///Users/hyeonseung/Desktop/item
+uploadPath : file:///Users/hyeonseung/Desktop/item/
 

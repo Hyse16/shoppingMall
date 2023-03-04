@@ -11,8 +11,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-@Getter @Setter
 @NoArgsConstructor
+@Getter
+@Setter
 public class ItemFormDto {
 
     private Long id;
@@ -36,7 +37,8 @@ public class ItemFormDto {
     private List<Long> itemImgIds = new ArrayList<>();
 
     @Builder
-    public ItemFormDto(String itemNm, Integer price, String itemDetail, Integer stockNumber, ItemSellStatus itemSellStatus) {
+    public ItemFormDto(Long id,String itemNm, Integer price, String itemDetail, Integer stockNumber, ItemSellStatus itemSellStatus) {
+        this.id = id;
         this.itemNm = itemNm;
         this.price = price;
         this.itemDetail = itemDetail;
@@ -46,6 +48,7 @@ public class ItemFormDto {
 
     public Item toEntity(ItemFormDto dto) {
         Item entity = Item.builder()
+                .id(dto.id)
                 .itemNm(dto.itemNm)
                 .itemDetail(dto.itemDetail)
                 .itemSellStatus(dto.itemSellStatus)
@@ -58,6 +61,7 @@ public class ItemFormDto {
 
     public static ItemFormDto of(Item entity) {
         ItemFormDto dto = ItemFormDto.builder()
+                .id(entity.getId())
                 .itemNm(entity.getItemNm())
                 .itemDetail(entity.getItemDetail())
                 .itemSellStatus(entity.getItemSellStatus())

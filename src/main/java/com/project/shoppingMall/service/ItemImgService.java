@@ -23,6 +23,7 @@ public class ItemImgService {
 
     private final FileService fileService;
 
+
     public void saveItemImg(ItemImg itemImg, MultipartFile itemImgFile) throws Exception{
         String oriImgName = itemImgFile.getOriginalFilename();
         String imgName = "";
@@ -42,8 +43,10 @@ public class ItemImgService {
             ItemImg savedItemImg = itemImgRepository.findById(itemImgId)
                     .orElseThrow(EntityNotFoundException::new);
 
+            //기존 이미지 파일 삭제
             if(!StringUtils.isEmpty(savedItemImg.getImgName())) {
-                fileService.deleteFile(itemImgLocation+ "/"+ savedItemImg.getImgName());
+                fileService.deleteFile(itemImgLocation+"/"+
+                        savedItemImg.getImgName());
             }
 
             String oriImgName = itemImgFile.getOriginalFilename();
@@ -52,5 +55,4 @@ public class ItemImgService {
             savedItemImg.updateImg(oriImgName, imgName, imgUrl);
         }
     }
-
 }

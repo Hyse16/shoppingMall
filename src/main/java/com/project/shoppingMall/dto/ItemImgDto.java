@@ -19,7 +19,8 @@ public class ItemImgDto {
     private String repImgYn;
 
     @Builder
-    public ItemImgDto(String imgName, String oriImgName, String imgUrl, String repImgYn) {
+    public ItemImgDto(Long id,String imgName, String oriImgName, String imgUrl, String repImgYn) {
+        this.id = id;
         this.imgName = imgName;
         this.oriImgName = oriImgName;
         this.imgUrl = imgUrl;
@@ -28,6 +29,7 @@ public class ItemImgDto {
 
     public ItemImg toEntity(ItemImgDto dto) {
         ItemImg entity = ItemImg.builder()
+                .id(dto.id)
                 .imgName(dto.imgName)
                 .oriImgName(dto.oriImgName)
                 .imgUrl(dto.imgUrl)
@@ -39,6 +41,7 @@ public class ItemImgDto {
 
     public static ItemImgDto of(ItemImg entity) {
         ItemImgDto dto = ItemImgDto.builder()
+                .id(entity.getId())
                 .imgName(entity.getImgName())
                 .oriImgName(entity.getOriImgName())
                 .imgUrl(entity.getImgUrl())
