@@ -12,7 +12,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class ItemImg extends BaseEntity{
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "item_img_id")

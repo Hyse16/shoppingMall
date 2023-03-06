@@ -5,6 +5,7 @@ import com.project.shoppingMall.domain.ItemImg;
 import com.project.shoppingMall.dto.ItemFormDto;
 import com.project.shoppingMall.dto.ItemImgDto;
 import com.project.shoppingMall.dto.ItemSearchDto;
+import com.project.shoppingMall.dto.MainItemDto;
 import com.project.shoppingMall.repository.ItemImgRepository;
 import com.project.shoppingMall.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -79,5 +80,10 @@ public class ItemService {
     @Transactional(readOnly = true)
     public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
         return itemRepository.getAdminItemPage(itemSearchDto, pageable);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
+        return itemRepository.getMainItemPage(itemSearchDto, pageable);
     }
 }
