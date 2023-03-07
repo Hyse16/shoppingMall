@@ -54,15 +54,22 @@ public class OrderController {
         Page<OrderHistDto> ordersHistDtoList = orderService.getOrderList(principal.getName(), pageable);
 
 
-        System.out.println("log");
-        List<OrderHistDto> content = ordersHistDtoList.getContent();
-        for (OrderHistDto orderHistDto : content) {
-            System.out.println("orderHistDto = " + orderHistDto.toString());
-        }
+
         model.addAttribute("orders", ordersHistDtoList);
         model.addAttribute("page", pageable.getPageNumber());
         model.addAttribute("maxPage", 5);
 
         return "order/orderHist";
+    }
+
+    @PostMapping("/order/{orderId}/cancel")
+    public @ResponseBody ResponseEntity cancelOrder(@PathVariable("orderId") Long orderId , Principal principal){
+
+        if(!orderService.validateOrder(orderId, principal.getName())){
+            return new ResponseEntity<String>("주문 취소 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
+
+        orderService.cancelOrder(orderId);
+        return new ResponseEntity<Long>(orderId, HttpStatus.OK);
     }
 }

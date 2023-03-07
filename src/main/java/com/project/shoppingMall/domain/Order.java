@@ -61,6 +61,13 @@ public class Order extends BaseEntity{
         return totalPrice;
     }
 
+    public void cancelOrder() {
+        this.orderStatus = OrderStatus.CANCEL;
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
     @Builder
     public Order(Long id,Member member, OrderStatus orderStatus, LocalDateTime orderDate) {
         this.id = id;

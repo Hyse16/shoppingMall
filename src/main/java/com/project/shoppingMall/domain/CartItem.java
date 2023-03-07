@@ -29,10 +29,29 @@ public class CartItem extends BaseEntity{
     private int count;
 
 
+    public static CartItem createCartItem(Cart cart, Item item, int count) {
+
+        return CartItem.builder()
+                .cart(cart)
+                .item(item)
+                .count(count)
+                .build();
+    }
+
+
+    public void addCount(int count){
+        this.count += count;
+    }
+
+    public void updateCount(int count) {
+        this.count = count;
+    }
+
     @Builder
-    public CartItem(Cart cart, Item item, int count) {
+    public CartItem(Long id,Cart cart, Item item, int count) {
         this.cart = cart;
         this.item = item;
         this.count = count;
+        this.id = id;
     }
 }

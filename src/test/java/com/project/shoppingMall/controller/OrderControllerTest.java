@@ -1,6 +1,7 @@
 package com.project.shoppingMall.controller;
 
 import com.project.shoppingMall.constant.ItemSellStatus;
+import com.project.shoppingMall.constant.OrderStatus;
 import com.project.shoppingMall.domain.Item;
 import com.project.shoppingMall.domain.Member;
 import com.project.shoppingMall.domain.Order;
@@ -17,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 
 import java.util.List;
 
@@ -80,5 +82,21 @@ class OrderControllerTest {
         assertEquals(totalPrice, order.getTotalPrice());
     }
 
+    @Test
+    public void cancelOrder(){
+        Item item = saveItem();
+        Member member = member();
+
+        OrderDto orderDto = new OrderDto();
+        orderDto.setCount(10);
+        orderDto.setItemId(item.getId());
+        Long orderId = orderService.order(orderDto, member.getEmail());
+
+        Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
+        orderService.cancelOrder(orderId);
+
+        assertEquals(OrderStatus.CANCEL, order.getOrderStatus());
+        assertEquals(100, item.getStockNumber());
+    }
 
 }
