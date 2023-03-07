@@ -31,7 +31,8 @@ public class Member extends BaseEntity{
     private Role role;
 
     @Builder
-    public Member(String name, String email, String password, String address, Role role) {
+    public Member(Long id,String name, String email, String password, String address, Role role) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;

@@ -32,12 +32,26 @@ public class OrderItem extends BaseEntity{
     private int count;
 
     @Builder
-    public OrderItem(Item item, Order order, int orderPrice, int count) {
+    public OrderItem(Long id,Item item, Order order, int orderPrice, int count) {
+        this.id = id;
         this.item = item;
         this.order = order;
         this.orderPrice = orderPrice;
         this.count = count;
+    }
 
+    public static OrderItem createOrderItem(Item item, int count) {
+        OrderItem orderItem = OrderItem.builder()
+                .item(item)
+                .count(count)
+                .orderPrice(item.getPrice())
+                .build();
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    public int getTotalPrice() {
+        return orderPrice * count;
     }
 
 }

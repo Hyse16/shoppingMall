@@ -34,8 +34,36 @@ public class Order extends BaseEntity{
     private LocalDateTime orderDate;
 
 
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem = OrderItem.builder()
+                .order(this)
+                .build();
+    }
+
+    public static Order createOrder(Member member, List<OrderItem> orderItemList) {
+        Order order = Order.builder()
+                .member(member)
+                .orderStatus(OrderStatus.ORDER)
+                .orderDate(LocalDateTime.now())
+                .build();
+        for (OrderItem orderItem : orderItemList) {
+            order.addOrderItem(orderItem);
+        }
+        return order;
+    }
+
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
+    }
+
     @Builder
-    public Order(Member member, OrderStatus orderStatus, LocalDateTime orderDate) {
+    public Order(Long id,Member member, OrderStatus orderStatus, LocalDateTime orderDate) {
+        this.id = id;
         this.member = member;
         this.orderStatus = orderStatus;
         this.orderDate = orderDate;
