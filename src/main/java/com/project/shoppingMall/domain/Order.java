@@ -33,13 +33,14 @@ public class Order extends BaseEntity{
 
     private LocalDateTime orderDate;
 
-
     public void addOrderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
         orderItem = OrderItem.builder()
                 .order(this)
+                .item(orderItem.getItem())
                 .build();
+        orderItems.add(orderItem);
     }
+
 
     public static Order createOrder(Member member, List<OrderItem> orderItemList) {
         Order order = Order.builder()

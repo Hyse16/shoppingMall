@@ -17,6 +17,8 @@ public class SecurityConfig {
 
     @Autowired
     MemberService memberService;
+
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.formLogin()
