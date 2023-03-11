@@ -37,6 +37,8 @@ public class Order extends BaseEntity{
         orderItem = OrderItem.builder()
                 .order(this)
                 .item(orderItem.getItem())
+                .count(orderItem.getCount())
+                .orderPrice(orderItem.getOrderPrice())
                 .build();
         orderItems.add(orderItem);
     }
