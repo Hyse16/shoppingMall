@@ -39,9 +39,9 @@ class ItemServiceTest {
 
         for(int i=0;i<5;i++){
             String path = "/Users/hyeonseung/Desktop/item/shop";
-            String imageName = "image" + i + ".jpg";
+            String imageName = "templates/image" + i + ".jpg";
             MockMultipartFile multipartFile =
-                    new MockMultipartFile(path, imageName, "image/jpg", new byte[]{1,2,3,4});
+                    new MockMultipartFile(path, imageName, "templates/image/jpg", new byte[]{1,2,3,4});
             multipartFileList.add(multipartFile);
         }
 
