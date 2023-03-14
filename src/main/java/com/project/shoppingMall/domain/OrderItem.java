@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
+@Table(name = "order_item")
 public class OrderItem extends BaseEntity{
 
     @Id

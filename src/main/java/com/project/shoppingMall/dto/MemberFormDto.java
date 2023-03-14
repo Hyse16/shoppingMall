@@ -1,5 +1,6 @@
 package com.project.shoppingMall.dto;
 
+import com.project.shoppingMall.domain.Member;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
