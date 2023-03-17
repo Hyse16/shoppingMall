@@ -3,6 +3,7 @@ package com.project.shoppingMall.domain;
 import com.project.shoppingMall.constant.Role;
 import com.project.shoppingMall.dto.MemberFormDto;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
@@ -13,6 +14,9 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 public class Member extends BaseEntity{
+
+
+
     @Id
     @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

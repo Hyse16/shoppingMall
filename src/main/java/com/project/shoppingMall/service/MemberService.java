@@ -3,6 +3,7 @@ package com.project.shoppingMall.service;
 import com.project.shoppingMall.domain.Member;
 import com.project.shoppingMall.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,6 +20,7 @@ public class MemberService implements UserDetailsService {
 
     public Member saveMember(Member member) {
         validateDuplicateMember(member);
+
         return memberRepository.save(member);
     }
 
