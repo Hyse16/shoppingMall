@@ -4,6 +4,7 @@ import com.project.shoppingMall.domain.Item;
 import com.project.shoppingMall.dto.ItemFormDto;
 import com.project.shoppingMall.dto.ItemSearchDto;
 import com.project.shoppingMall.service.ItemService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ItemController {
 
     private final ItemService itemService;
