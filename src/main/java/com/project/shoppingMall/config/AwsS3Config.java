@@ -16,6 +16,7 @@ public class AwsS3Config {
     @Value("HW8xzC5EJsP/bRdojMPIBxyJwunmdyloZ+SMM6YI")
     private String secretKey;
 
+
     @Value("$ap-northeast-2")
     private String region;
 
