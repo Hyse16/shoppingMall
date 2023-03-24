@@ -1,13 +1,13 @@
-# 나만의 쇼핑몰
+# 나만의 쇼핑몰 💪
 
 <img src="https://images.pexels.com/photos/5632398/pexels-photo-5632398.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="400" height="200"/>
 
 
-## 프로젝트 정보
+## 프로젝트 정보 👍
 - 프로젝트를 구상하다 CRUD를 표현하기 좋은 쇼핑몰이 적합하여 만들게 되었습니다.
 - 개발 기간 : 2.28 ~ 3.23
 
-## Stacks
+## Stacks 📖
 
 ### Environment
 - IntelliJ IDEA
@@ -24,12 +24,16 @@
 - Spring Security
 
 
-## ERD 다이어그램
+<br>
+
+
+## ERD 다이어그램 👓
 
 <img width="500" alt="스크린샷 2023-03-24 오후 2 33 00" src="https://user-images.githubusercontent.com/97417045/227433141-8d977342-16ea-4e05-b147-87e6e807a19e.png">
 
+<Br>
 
-## 화면 구성
+## 화면 구성 💻
 
 
 | 메인 페이지  |  로그인  |
@@ -46,9 +50,13 @@
 |  <img width="329" alt="스크린샷 2023-03-24 오후 1 52 15" src="https://user-images.githubusercontent.com/97417045/227435904-9bb93304-43c8-49d0-87ea-f4b15a7bccde.png"><| <img width="329" alt="스크린샷 2023-03-24 오후 1 52 58" src="https://user-images.githubusercontent.com/97417045/227436005-5b9ee161-9236-4e03-a98f-69cb92c5a352.png">
 
 
+<br>
 
 ## 주요 기능
-✏️
+✏️ 로그인, 회원가입 기능
+✏️ 상품 등록, 수정, 관리
+✏️ 장바구니, 구매한 상품 이력
+
 
 
 
