@@ -20,6 +20,7 @@
 - Thymeleaf
 - MYSQL
 - JPA
+- QueryDsl
 - Spring Data
 - Spring Security
 
