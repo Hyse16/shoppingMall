@@ -16,9 +16,13 @@
 
 ### Developement
 - JAVA
-- Spring Boot : 2.7.6 ver
-- BootStrap
+- Spring Boot
+- Thymeleaf
 - MYSQL
+- JPA
+- Spring Data
+- Spring Security
 
 
-
+## ERD 다이어그램
+<img width="450" alt="스크린샷 2023-03-24 오후 2 26 43" src="https://user-images.githubusercontent.com/97417045/227432264-ada61e0a-15c3-452d-b263-27c126321835.png">
