@@ -35,10 +35,10 @@
 | 메인 페이지  |  로그인  |
 | :-------------------------------------------: | :------------: |
 |  <img width="329" alt="스크린샷 2023-03-24 오후 1 50 35" src="https://user-images.githubusercontent.com/97417045/227433345-2e0bbe44-398e-40ab-b0ff-cca02d23018c.png"/> | <img width="329" alt="스크린샷 2023-03-24 오후 1 41 07" src="https://user-images.githubusercontent.com/97417045/227433410-89633787-2dcc-4621-a3ba-e57c2520d234.png">|  
+| 회원가입  | 상품등록 |
+| :-------------------------------------------: | :------------: |
+|  <img width="329" alt="스크린샷 2023-03-24 오후 1 41 26" src="https://user-images.githubusercontent.com/97417045/227435365-c097b0a2-91bc-4e0c-b469-a33463da032c.png"> | <img width="329" alt="스크린샷 2023-03-24 오후 2 36 15" src="https://user-images.githubusercontent.com/97417045/227435422-61d23267-c7ac-4358-b94a-dec9c4ded8d2.png">
 
-[메인화면] <img width="300" alt="스크린샷 2023-03-24 오후 1 50 35" src="https://user-images.githubusercontent.com/97417045/227433345-2e0bbe44-398e-40ab-b0ff-cca02d23018c.png"> <img width="300" alt="스크린샷 2023-03-24 오후 1 41 07" src="https://user-images.githubusercontent.com/97417045/227433410-89633787-2dcc-4621-a3ba-e57c2520d234.png"> <img width="300" alt="스크린샷 2023-03-24 오후 1 41 26" src="https://user-images.githubusercontent.com/97417045/227433441-2a2549e9-f54e-44a6-b74b-72a49fd9b21e.png">
-<img width="300" alt="스크린샷 2023-03-24 오후 2 36 15" src="https://user-images.githubusercontent.com/97417045/227433588-9a7db65a-f7a8-488a-8c8b-2f542fb0d500.png">
-<img width="300" alt="스크린샷 2023-03-24 오후 1 50 57" src="https://user-images.githubusercontent.com/97417045/227433663-ae6f7b0f-7fb4-4eff-8146-bd76e4add2c2.png">
-<img width="300" alt="스크린샷 2023-03-24 오후 1 51 19" src="https://user-images.githubusercontent.com/97417045/227433681-f1ade833-b1f3-4ca8-93d6-1a670b21231d.png">
-<img width="300" alt="스크린샷 2023-03-24 오후 1 52 15" src="https://user-images.githubusercontent.com/97417045/227433696-0e8bcc8a-90f1-4205-9eee-41f24b160fa1.png">
-<img width="300" alt="스크린샷 2023-03-24 오후 1 52 58" src="https://user-images.githubusercontent.com/97417045/227433705-b13b8224-8f05-4d58-be5d-4aeb0562897d.png">
+
+
+
