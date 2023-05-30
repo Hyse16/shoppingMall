@@ -11,7 +11,7 @@
 
 ### Environment
 - IntelliJ IDEA
-- GitHub
+- Git
 
 
 ### Developement
